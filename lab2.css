@@ -1,0 +1,188 @@
+/* --- Базові стилі для сторінки --- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* Демо: line-height: normal (неявне значення) та <процент> */
+    background-color: #f4f4f4; /* Демо: background-color */
+    color: #333; /* Демо: color */
+    direction: ltr; /* Демо: direction: ltr */
+    unicode-bidi: normal; /* Демо: unicode-bidi: normal */
+}
+
+/* --- Селектори ідентифікаторів та класів --- */
+#main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem; /* Демо: padding:<розмір> */
+    text-align: center;
+    border-bottom-width: 5px; /* Демо: border-bottom-width:<розмір> */
+    border-bottom-color: #555; /* Демо: border-bottom-color */
+    border-bottom-style: groove; /* Демо: border-bottom-style: groove */
+}
+
+.content-wrapper {
+    width: 90%; /* Демо: width:<процент> */
+    max-width: 1000px; /* Демо: max-width */
+    margin-left: auto; /* Демо: margin-left: auto (для центрування) */
+    margin-right: auto; /* Демо: margin-right: auto (для центрування) */
+    padding-top: 20px; /* Демо: padding-top */
+}
+
+.card {
+    background-color: #fff;
+    margin-top: 15px; /* Демо: margin-top:<розмір> */
+    margin-bottom: 15px;
+    padding-left: 20px; /* Демо: padding-left */
+    border-left-width: thin; /* Демо: border-left-width:thin */
+    border-left-style: dotted; /* Демо: border-left-style: dotted */
+    border-left-color: #007bff; /* Демо: border-left-color */
+}
+
+/* --- Контекстні селектори та селектори сусідів --- */
+/* Демо: Селектор спадкоємців (E F) - стилізує <span> всередині <p> */
+.details p span {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+/* Демо: Селектор сусідів (E + F) - стилізує <p> відразу після <h2> */
+.details h2 + p {
+    color: #5a9;
+    font-style: italic;
+}
+
+/* --- Селектори атрибутів --- */
+/* Демо: [attr] - стилізує всі <a>, що мають атрибут title */
+a[title] {
+    border-bottom: 2px dashed #0275d8;
+}
+
+/* Демо: [attr~=value] - стилізує <p> з атрибутом data-keywords, що містить слово 'examples' */
+p[data-keywords~="examples"] {
+    background-color: #fcf8e3;
+    padding: 10px;
+}
+
+/* Демо: [attr*=value] - стилізує <a>, в href яких є підрядок "example" */
+a[href*="example"] {
+    font-weight: bold;
+}
+
+/* --- Псевдокласи --- */
+/* Демо: :first-child */
+.list-section ul li:first-child {
+    color: green;
+}
+
+/* Демо: :last-child */
+.list-section ul li:last-child {
+    color: red;
+}
+
+/* Демо: :last-of-type */
+.list-section p:last-of-type {
+    border-top-width: thin; /* Демо: border-top-width: thin */
+    border-top-style: dashed; /* Демо: border-top-style: dashed */
+    padding-top: 10px;
+}
+
+/* Демо: :enabled */
+input:enabled {
+    background-color: #e7f7e7;
+    outline-color: green; /* Демо: outline-color */
+}
+
+/* Демо: :invalid */
+input:invalid {
+    border-top-color: #d9534f; /* Демо: border-top-color */
+    outline-width: 2px; /* Демо: outline-width */
+    border-width: 2px; /* Демо: border-width:<розмір> */
+}
+
+/* Демо: :visited */
+a:visited {
+    color: #663399 !important; /* Демо: !important */
+}
+
+/* Демо: :empty */
+.empty-div {
+    height: 20px; /* Демо: height:<розмір> */
+    background-color: #ffcccc;
+    border-style: none; /* Демо: border-style:none */
+    margin-top: 2%; /* Демо: margin-top:<процент> */
+}
+
+/* --- Псевдоелементи --- */
+/* Демо: ::first-line */
+.intro p::first-line {
+    font-size: 1.2em;
+    color: #31708f;
+}
+
+/* Демо: ::selection */
+::selection {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* --- Позиціювання елементів --- */
+#main-footer {
+    position: fixed; /* Демо: position:fixed */
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    z-index: 100; /* Демо: z-index:auto (неявне значення) */
+}
+
+.floated-image {
+    float: left; /* Демо: float:left */
+    margin-right: 2%; /* Демо: margin-right:<процент> */
+    height: auto; /* Демо: height:auto */
+}
+
+.clear-fix {
+    clear: right; /* Демо: clear:right (в даному випадку 'left' або 'both' було б логічніше, але для демонстрації) */
+}
+
+/* --- Візуалізація та Display --- */
+.intro p:last-child {
+    display: none; /* Демо: display:none */
+}
+
+.table-caption-style {
+    display: table-caption; /* Демо: display:table-caption */
+}
+.table-column-style {
+    display: table-column; /* Демо: display:table-column */
+    width: 200px;
+}
+.table-footer-style {
+    display: table-footer-group; /* Демо: display:table-footer-group */
+    background-color: #eee;
+}
+
+.collapsible-row {
+    visibility: collapse; /* Демо: visibility:collapse - ховає рядок, зберігаючи простір */
+}
+
+.details span {
+    display: inline; /* Демо: display:inline */
+    vertical-align: middle; /* Демо: vertical-align:middle */
+    line-height: 150%; /* Демо: line-height:<процент> */
+}
+
+.overflow-box {
+    height: 50px; /* Демо: height:<розмір> */
+    max-height: none; /* Демо: max-height:none */
+    overflow: hidden; /* Демо: overflow:hidden */
+    border-right-width: thin; /* Демо: border-right-width:thin */
+}
+
+/* --- Фон --- */
+.form-section {
+    background-image: url('https://www.transparenttextures.com/patterns/az-subtle.png'); /* Демо: background-image */
+    background-attachment: scroll; /* Демо: background-attachment:scroll */
+    background-position: top; /* Демо: background-position:top */
+}
