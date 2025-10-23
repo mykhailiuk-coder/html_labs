@@ -1,0 +1,78 @@
+/* news.css */
+
+/* Селектор атрибутів [attr~=value] */
+/* (Припустимо, у .news-item є data-tags="news business") */
+.news-item[data-tags~="business"] {
+    background-color: rosybrown; /* background-color */
+    border-top-style: none; /* border-top-style: none */
+    border-left-style: dotted; /* border-left-style: dotted */
+    
+    /* Візуалізація елементiв */
+    visibility: visible; /* visibility: visible */
+}
+
+/* Інший .news-item для демонстрації */
+.news-item {
+    margin-top: 15px; /* margin-top: <розмір> */
+    padding: 10px; /* padding: <розмір> */
+    border-right-width: 3px; /* border-right-width: <розмір> */
+    border-top-style: dotted; /* border-top-style: dotted */
+    background-position: left; /* background-position: left */
+}
+
+/* Псевдоклас :visited */
+.news-item a:visited {
+    color: #f0f0f0; /* color: <колір> */
+}
+
+/* Позиціювання елементiв */
+.news-item h4 {
+    display: inline; /* display: inline */
+    margin-right: 20px; /* margin-right: <розмір> */
+    vertical-align: text-bottom; /* vertical-align: text-bottom */
+    unicode-bidi: embed; /* unicode-bidi: embed */
+}
+
+/* Демонстрація display: none (ховає елемент) */
+.hidden-info {
+    display: none; /* display: none */
+}
+
+/* Приклад для елементів "таблиці" (якщо б вони були) */
+.column-style {
+    display: table-column; /* display: table-column */
+    visibility: collapse; /* visibility: collapse */
+}
+
+/* Position: fixed */
+/* (Створює "прилипаючий" заголовок у шапці) */
+header p:first-child {
+    position: fixed; /* position: fixed */
+    top: 0;
+    left: 10px;
+    background: white;
+    padding: 5px;
+    border-width: thin; /* border-width: thin */
+    border-left-style: none; /* border-left-style: none */
+    background-position: top; /* background-position: top */
+}
+
+/* --- Стилі для уявної форми підписки --- */
+.subscription-form {
+    background: #eee;
+    padding: 15px;
+    margin-top: 30px;
+    border-top-style: dashed; /* border-top-style: dashed */
+    clear: none; /* clear: none */
+}
+
+/* Псевдоклас :enabled (поле активне) */
+.subscription-form input:enabled {
+    border-style: groove; /* border-style: groove */
+}
+
+/* Псевдоклас :invalid (якщо поле не проходить валідацію, напр. <input type="email" required>) */
+.subscription-form input:invalid {
+    border-bottom-color: red; /* border-bottom-color: <колір> */
+    border-bottom-width: 2px; /* border-bottom-width: <розмір> */
+}
