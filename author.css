@@ -1,0 +1,134 @@
+/* --- Загальні стилі --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Дуже світлий фон */
+    color: #333; /* Основний колір тексту */
+    line-height: 1.6;
+}
+
+/* --- Шапка сайту --- */
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Вирівнюємо елементи по центру вертикально */
+    gap: 30px;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0; /* Скидаємо відступи за замовчуванням */
+}
+
+.main-header a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 4px;
+    /* Ефект підкреслення при наведенні */
+    border-bottom: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.main-header a:hover {
+    color: blueviolet;
+    border-bottom-color: blueviolet;
+}
+
+/* Стиль для поточної сторінки (Про автора) */
+.main-header a[href=""] {
+    color: blueviolet;
+    font-weight: bold;
+    border-bottom-color: blueviolet;
+}
+
+/* --- Основний контент --- */
+main {
+    max-width: 960px; /* Обмежуємо ширину для читабельності */
+    margin: 40px auto; /* Центруємо main і додаємо відступ зверху/знизу */
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-top: 40px; /* Збільшуємо відступ зверху */
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #222;
+}
+
+.highlight-name {
+    color: blueviolet;
+}
+
+.intro-paragraph {
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto 50px auto; /* Центруємо і додаємо відступ знизу */
+    font-size: 1.1em;
+    color: #444;
+}
+
+/* --- Контейнер з картками --- */
+.cards-container {
+    display: flex; /* Розкладаємо картки в ряд */
+    justify-content: center; /* Центруємо їх */
+    gap: 20px;
+    flex-wrap: wrap; /* Дозволяємо переноситись на новий рядок на малих екранах */
+}
+
+.card {
+    flex-basis: 280px; /* Базова ширина кожної картки */
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 12px; /* Більш заокруглені кути */
+    background-color: #ffffff;
+    
+    /* Тінь для ефекту "підняття" */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    /* Плавний ефект при наведенні */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ефект при наведенні на картку */
+.card:hover {
+    transform: translateY(-5px); /* Злегка піднімаємо картку */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: blueviolet;
+    font-size: 1.4em;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* --- Завершальний текст --- */
+.outro-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee; /* Легка лінія-розділювач */
+}
+
+.outro-container p {
+    max-width: 450px;
+    text-align: center;
+    font-style: italic; /* Курсив для цитати/думки */
+    color: #777;
+}
