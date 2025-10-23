@@ -1,78 +1,110 @@
-/* news.css */
+/* news.css (Повністю оновлена версія) */
 
-/* Селектор атрибутів [attr~=value] */
-/* (Припустимо, у .news-item є data-tags="news business") */
-.news-item[data-tags~="business"] {
-    background-color: rosybrown; /* background-color */
-    border-top-style: none; /* border-top-style: none */
-    border-left-style: dotted; /* border-left-style: dotted */
+/* ------------------------------------- */
+/* 1. Загальні стилі та налаштування сторінки */
+/* ------------------------------------- */
+body {
+    font-family: Arial, sans-serif; /* Чистий, читабельний шрифт */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;     /* Дуже світло-сірий фон сторінки */
+    color: #333;                   /* Темно-сірий текст для читабельності */
+    line-height: 1.6;              /* Збільшений міжрядковий інтервал */
+}
+
+/* ------------------------------------- */
+/* 2. Шапка сайту (Header) */
+/* ------------------------------------- */
+header {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center; /* Вертикальне вирівнювання елементів */
+    padding: 20px 0;
+    background-color: #ffffff; /* Білий фон для шапки */
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Легка тінь */
     
-    /* Візуалізація елементiв */
-    visibility: visible; /* visibility: visible */
+    /* Ми НЕ використовуємо 'position: fixed' для логотипу, 
+       щоб не ламати потік */
 }
 
-/* Інший .news-item для демонстрації */
+/* Логотип 'FreshBuzz' */
+header .logo {
+    color: blueviolet;
+    margin: 0; /* Скидаємо відступи */
+    font-weight: bold;
+    font-size: 1.3em; /* Збільшуємо логотип */
+}
+
+/* Посилання в шапці */
+header a {
+    margin: 0; /* Скидаємо відступи */
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent; /* Прозора рамка для ефекту */
+    transition: all 0.3s ease;
+}
+
+/* Ефект при наведенні та активне посилання */
+header a:hover,
+header a.active {
+    color: blueviolet;
+    border-bottom-color: blueviolet; /* Появляється рамка */
+}
+
+/* ------------------------------------- */
+/* 3. Контент новин */
+/* ------------------------------------- */
+
+/* Головний контейнер для новин */
+.news-container {
+    /* Замість 'margin-left: 360px' робимо адаптивний центрований блок */
+    max-width: 900px;
+    margin: 40px auto; /* 40px зверху/знизу, 'auto' по боках для центрування */
+    padding: 0 20px;   /* Безпечні відступи по боках */
+}
+
+
+
+/* Заголовок "Новини" */
+.news-container h1 {
+    text-align: left;
+    max-width: 100%;
+    border-bottom: 3px solid blueviolet;
+    padding-bottom: 10px;
+    margin-bottom: 30px; /* Відступ після заголовка */
+}
+
+/* ------------------------------------- */
+/* 4. Картка новини */
+/* ------------------------------------- */
 .news-item {
-    margin-top: 15px; /* margin-top: <розмір> */
-    padding: 10px; /* padding: <розмір> */
-    border-right-width: 3px; /* border-right-width: <розмір> */
-    border-top-style: dotted; /* border-top-style: dotted */
-    background-position: left; /* background-position: left */
+    /* Замінюємо 'rosybrown' на чистий білий фон */
+    background-color: #ffffff; 
+
+    /* Замінюємо дивні 'dotted' рамки на сучасний вигляд */
+    border: 1px solid #ddd;
+    border-left: 5px solid blueviolet; /* Кольоровий акцент зліва */
+    border-radius: 8px; /* Заокруглені кути */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* М'яка тінь */
+    padding: 25px;       /* Внутрішній відступ */
 }
 
-/* Псевдоклас :visited */
-.news-item a:visited {
-    color: #f0f0f0; /* color: <колір> */
-}
-
-/* Позиціювання елементiв */
-.news-item h4 {
-    display: inline; /* display: inline */
-    margin-right: 20px; /* margin-right: <розмір> */
-    vertical-align: text-bottom; /* vertical-align: text-bottom */
-    unicode-bidi: embed; /* unicode-bidi: embed */
-}
-
-/* Демонстрація display: none (ховає елемент) */
-.hidden-info {
-    display: none; /* display: none */
-}
-
-/* Приклад для елементів "таблиці" (якщо б вони були) */
-.column-style {
-    display: table-column; /* display: table-column */
-    visibility: collapse; /* visibility: collapse */
-}
-
-/* Position: fixed */
-/* (Створює "прилипаючий" заголовок у шапці) */
-header p:first-child {
-    position: fixed; /* position: fixed */
-    top: 0;
-    left: 10px;
-    background: white;
-    padding: 5px;
-    border-width: thin; /* border-width: thin */
-    border-left-style: none; /* border-left-style: none */
-    background-position: top; /* background-position: top */
-}
-
-/* --- Стилі для уявної форми підписки --- */
-.subscription-form {
-    background: #eee;
-    padding: 15px;
+/* Основні стилі для внутрішнього контейнера статті — зроблено непорожнім, щоб уникнути помилки лінтера */
+.news-article {
     margin-top: 30px;
-    border-top-style: dashed; /* border-top-style: dashed */
-    clear: none; /* clear: none */
+    margin-bottom: 30px;   
+    margin-left: 0;
+    padding: 0;
+    color: inherit;
+    line-height: 1.55;
+    background-color: #ffffff;
 }
 
-/* Псевдоклас :enabled (поле активне) */
-.subscription-form input:enabled {
-    border-style: groove; /* border-style: groove */
-}
-
-/* Псевдоклас :invalid (якщо поле не проходить валідацію, напр. <input type="email" required>) */
-.subscription-form input:invalid {
-    border-bottom-color: red; /* border-bottom-color: <колір> */
-    border-bottom-width: 2px; /* border-bottom-width: <розмір> */
+.news-article a {
+    color: blueviolet;
+    text-decoration: none;
 }
