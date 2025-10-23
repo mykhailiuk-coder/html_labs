@@ -1,0 +1,176 @@
+/* --- Загальні стилі --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Дуже світлий фон */
+    color: #333; /* Основний колір тексту */
+    line-height: 1.6;
+}
+
+/* --- Шапка сайту --- */
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 30px;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.main-header a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.main-header a:hover {
+    color: blueviolet;
+    border-bottom-color: blueviolet;
+}
+
+/* Стиль для поточної сторінки (Про нас) */
+.main-header a.active {
+    color: blueviolet;
+    font-weight: bold;
+    border-bottom-color: blueviolet;
+}
+
+/* --- Основний контент --- */
+.container {
+    /* Відтворюємо оригінальне центрування */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* Обмежуємо ширину для читабельності */
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 0 20px;
+}
+
+.subheading {
+    color: #888;
+    font-weight: 500;
+    margin: 0;
+}
+
+.brand-name {
+    color: blueviolet;
+    font-size: 3.5em; /* Великий, помітний бренд */
+    margin: 10px 0;
+}
+
+.description {
+    max-width: 600px; /* Трохи ширше для комфортного читання */
+    font-size: 1.1em;
+    color: #444;
+}
+
+/* --- Блок статистики --- */
+.stats-container {
+    display: flex;
+    gap: 50px; /* Більший відступ між цифрами */
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    color: blueviolet;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.stat-label {
+    max-width: 140px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- Кнопка "Дізнатися більше" --- */
+.cta-button {
+    width: 240px;
+    height: 50px;
+    color: #ffffff;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 8px; /* Заокруглені кути */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #6a1b9a; /* Темніший відтінок при наведенні */
+    transform: translateY(-2px); /* Легкий ефект "натискання" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Промо-зображення --- */
+.promo-image {
+    max-width: 100%; /* Адаптивне зображення */
+    height: auto;
+    margin-top: 40px;
+}
+
+/* --- Секція з картками напоїв --- */
+.section-title {
+    margin-top: 60px; /* Більший відступ зверху */
+    font-size: 2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.drinks-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Дозволяє переноситись на новий рядок */
+    justify-content: center; /* Центрує картки */
+}
+
+.drink-card {
+    flex-basis: 280px; /* Базова ширина, дозволяє 3 в ряд на 900px */
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 12px; 
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drink-card:hover {
+    transform: translateY(-5px); /* Ефект "підняття" картки */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.drink-card h3 {
+    margin-top: 0;
+    color: blueviolet;
+    font-size: 1.4em;
+}
+
+.drink-card p {
+    font-size: 0.95em;
+    color: #555;
+}
