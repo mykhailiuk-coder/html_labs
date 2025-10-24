@@ -1,0 +1,279 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; 
+    color: #333333; 
+    line-height: 160%; 
+    direction: ltr; 
+    unicode-bidi: normal; 
+    overflow-y: scroll; 
+    background-image: url(''); 
+}
+
+::selection {
+    background-color: blueviolet;
+    color: white;
+}
+
+#top-author {
+    background-color: #fcfaff;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 25px;
+    padding: 15px 0;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: auto; 
+    
+    border-bottom-width: 1px; 
+    border-bottom-color: #e0e0e0; 
+    border-style: solid; 
+
+    background-attachment: scroll; 
+    background-position: left top; 
+}
+
+.logo {
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0;
+    margin-right: 20px;
+    float: left; 
+    max-height: none; 
+}
+
+.main-header a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent; 
+    transition: all 0.2s ease-in-out;
+    
+    display: inline; 
+    
+    margin-top: 0; 
+    margin-right: 0; 
+    padding-left: 5px; 
+    padding-top: 3px; 
+}
+
+.main-header a:visited {
+    color: #4a1b81; 
+}
+
+.main-header a:hover {
+    color: blueviolet;
+    border-bottom-color: blueviolet;
+}
+
+.main-header a.active {
+    color: blueviolet;
+    font-weight: 700;
+    border-bottom-color: blueviolet;
+}
+
+.page-container {
+    max-width: 950px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    
+    margin-top: 80px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.page-container h1, .brand-name {
+    border-bottom: 3px solid blueviolet;
+    padding-bottom: 10px;
+    margin-bottom: 30px; 
+    
+    height: auto; 
+    line-height: normal; 
+    position: static; 
+}
+
+.page-container h1::first-line {
+    color: #111;
+}
+
+.content-box, .card, .drink-card {
+    background-color: #ffffff; 
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); 
+    padding: 25px;   
+    margin-bottom: 30px; 
+    
+    overflow: hidden; 
+    visibility: visible; 
+    max-height: 2500px; 
+    width: auto; 
+    
+    border-left-width: 5px; 
+    border-left-color: blueviolet; 
+    border-left-style: groove; 
+    border-top-color: #f0f0f0; 
+    border-right-width: thin; 
+}
+
+.content-box h2, .section-title, .card h2 {
+    color: blueviolet;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-top-style: none; 
+    border-bottom-style: dashed; 
+    clear: none; 
+}
+
+.content-box + .content-box, .card + .card {
+    margin-top: 30px; 
+}
+
+ul li:first-child { 
+    font-weight: bold;
+    vertical-align: top; 
+}
+ol li:last-child { 
+    font-style: italic;
+    vertical-align: text-bottom; 
+}
+dl dt:last-of-type { 
+    color: #555;
+}
+p:empty { 
+    display: none; 
+}
+.floated-demo {
+    float: right; 
+    width: 120px; 
+    height: 80px; 
+    margin-left: 20px; 
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+}
+.clear-fix {
+    clear: right; 
+}
+
+a[href] { 
+    outline-color: blueviolet; 
+    color: blueviolet;
+}
+a[href*="wikipedia"] { 
+    background-color: #ffffdd;
+    color: #a10000 !important; 
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.page-title { border: none; }
+.highlight-name { color: blueviolet; }
+.intro-paragraph { font-size: 1.2em; color: #555; }
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.outro-container {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-top: 40px;
+    border-top: 1px dashed #ccc;
+    padding-top: 20px;
+}
+
+.subheading { text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #777; }
+.brand-name { border: none; margin-bottom: 10px; }
+.description { font-size: 1.1em; max-width: 600px; }
+.stats-container { display: flex; gap: 40px; margin: 30px 0; }
+.stat-item { text-align: left; }
+.stat-number { margin: 0; color: blueviolet; font-size: 2.5em; }
+.stat-label { margin: 0; color: #555; }
+.cta-button {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.cta-button:hover { background-color: #6a1cad; }
+.cta-button:focus { outline-width: 3px; }
+.drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.drink-card {
+    border-bottom-width: 4px; 
+    border-bottom-style: groove; 
+    border-left-color: #007bff; 
+}
+
+input:enabled, textarea:enabled { 
+    background-color: #faffbd;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+}
+input:invalid, textarea:invalid { 
+    border: 2px solid red;
+    border-left-style: none; 
+}
+
+caption { display: table-caption; }
+col { display: table-column; }
+tfoot { display: table-footer-group; }
+tr.hidden-row { visibility: collapse; }
+td { vertical-align: middle; }
+
+.demo-box {
+    background: #eee;
+    margin-top: 40px;
+    padding: 20px;
+    border-width: thin; 
+    border-style: dotted; 
+    border-top-style: dotted; 
+    border-right-width: 10px; 
+    border-left-style: dashed; 
+}
+.demo-box[data-tags~="demo"] {
+    border-top-style: groove; 
+}
+.run-in-demo {
+    display: run-in; 
+    font-weight: bold;
+}
+.clipped-demo {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+}
+.clipped-demo-inner {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: orange;
+    padding: 5px;
+    clip: rect(10px, 100px, 50px, 10px); 
+}
