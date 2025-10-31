@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форми | FreshBuzz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top-forms">
+
+    <header class="main-header">
+        <p class="logo">FreshBuzz</p>
+        <a href="about_us.html">Про нас</a>
+        <a href="news.html">Новини</a>
+        <a href="menu.html">Меню</a> 
+        <a href="tables.html">Таблиці</a>
+        <a href="forms.html" class="active">Форми</a> <a href="media.html">Мультимедіа</a>
+        <a href="about_author.html">Про автора</a>
+        <a href="lists.html">Списки</a>
+    </header>
+
+    <div class="page-container">
+        <h1>Реєстрація</h1>
+
+        <div class="content-box">
+            
+            <form action="#" method="POST" class="registration-form">
+
+                <div class="form-group">
+                    <label for="user-name">Ваше ім'я:</label>
+                    <input type="text" id="user-name" name="user_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-email">Ваш Email:</label>
+                    <input type="email" id="user-email" name="user_email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-pass">Пароль:</label>
+                    <input type="password" id="user-pass" name="user_password" minlength="8" required>
+                    <small>Мінімум 8 символів.</small>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Якій категорії напоїв ви надаєте перевагу?</legend>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="drink-cider" name="drink_pref" value="cider">
+                        <label for="drink-cider">Сидр (Somersby, APPS)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="drink-radler" name="drink_pref" value="radler">
+                        <label for="drink-radler">Пивні напої (Garage, Radler)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="drink-wine" name="drink_pref" value="wine">
+                        <label for="drink-wine">Вино та ігристе</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="drink-non-alc" name="drink_pref" value="non-alc">
+                        <label for="drink-non-alc">Безалкогольні міксери (Fever-Tree)</label>
+                    </div>
+                </fieldset>
+                
+                <div class="form-group">
+                    <label for="user-comments">Додаткові побажання:</label>
+                    <textarea id="user-comments" name="user_comments" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">Зареєструватись</button>
+            </form>
+        </div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const form = document.querySelector(".registration-form");
+
+        const userName = document.getElementById("user-name");
+        const userEmail = document.getElementById("user-email");
+        const userPass = document.getElementById("user-pass");
+        
+        const drinkCheckboxes = document.querySelectorAll('input[name="drink_pref"]');
+        
+        const drinkFieldset = document.querySelector(".form-group fieldset");
+
+        form.addEventListener("submit", function(event) {
+            
+            clearAllErrors();
+            
+            let isValid = true;
+
+            if (userName.value.trim() === "") {
+                showError(userName, "Ім'я не може бути порожнім.");
+                isValid = false;
+            }
+
+            if (userEmail.value.trim() === "") {
+                showError(userEmail, "Email не може бути порожнім.");
+                isValid = false;
+            } else if (!isValidEmail(userEmail.value)) {
+                showError(userEmail, "Введіть коректний формат email (наприклад, user@example.com).");
+                isValid = false;
+            }
+
+            if (userPass.value.length < 8) {
+                showError(userPass, "Пароль має містити щонайменше 8 символів.");
+                isValid = false;
+            }
+
+            if (!isAnyCheckboxChecked(drinkCheckboxes)) {
+                showError(drinkFieldset, "Оберіть хоча б одну категорію напоїв.");
+                isValid = false;
+            }
+
+            if (isValid === false) {
+                event.preventDefault(); 
+                alert("Будь ласка, виправте помилки у формі.");
+            } else {
+                alert("Реєстрація успішна!");
+            }
+        });
+
+        function showError(inputElement, message) {
+            clearError(inputElement);
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error-message"; // Додаємо клас для CSS
+            errorDiv.textContent = message; // Додаємо текст
+
+            inputElement.parentNode.insertBefore(errorDiv, inputElement.nextSibling);
+        }
+
+        function clearError(inputElement) {
+            const error = inputElement.parentNode.querySelector(".error-message");
+            if (error) {
+                error.remove();
+            }
+        }
+
+        function clearAllErrors() {
+            const allErrors = form.querySelectorAll(".error-message");
+            allErrors.forEach(error => error.remove());
+        }
+
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function isAnyCheckboxChecked(checkboxes) {
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    return true; // Знайшли хоча б один!
+                }
+            }
+            return false; // Не знайшли жодного
+        }
+
+    });
+    </script>
+</body>
+</html>
