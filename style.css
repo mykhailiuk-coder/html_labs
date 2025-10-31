@@ -277,3 +277,130 @@ td { vertical-align: middle; }
     padding: 5px;
     clip: rect(10px, 100px, 50px, 10px); 
 }
+
+.variant-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 25px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    border: 2px solid #000;
+}
+
+.variant-table td {
+    border: 2px solid #000;
+    height: 35px;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    background: #f9f9f9;
+}
+
+.variant-table td strong {
+    color: #333;
+}
+
+.variant-table caption {
+    caption-side: top; 
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 0;
+    color: #000;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+.form-group textarea:enabled {
+    background-color: #ffffff; 
+}
+.form-group textarea:invalid {
+    border: 2px solid red; 
+    border-left-style: none; 
+}
+
+.form-group small {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.form-group fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 0;
+}
+
+.form-group legend {
+    font-weight: 600;
+    padding: 0 10px; 
+    margin-left: 5px;
+    color: #333;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    background-color: #fff; 
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #555;
+}
+
+.registration-form .cta-button {
+    margin-top: 15px;
+    max-width: 250px; 
+}
+
+.form-group {
+    position: relative;
+    padding-bottom: 10px; 
+}
+
+.error-message {
+    color: #D8000C; 
+    background-color: #FFD2D2; 
+    border: 1px solid #D8000C;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: 8px; 
+}
