@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок контенту зі стрілками та прямокутниками | FreshBuzz</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .svg-diagram-container {
+            width: 100%;
+            max-width: 700px; /* Максимальна ширина діаграми */
+            margin: 20px auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+        }
+
+        .diagram-svg {
+            width: 100%;
+            height: 350px; 
+            display: block;
+            margin: 0 auto;
+        }
+
+        .diagram-box {
+            fill: #66b3ff; /* Блакитний */
+            stroke: #3385ff; /* Темно-блакитний обвід */
+            stroke-width: 2;
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+        .diagram-box:hover {
+            fill: #4da6ff;
+            transform: translateY(-3px); 
+        }
+        
+        .diagram-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #ffffff; /* Білий текст */
+            text-anchor: middle; /* Центрування тексту */
+            dominant-baseline: middle; /* Центрування тексту по вертикалі */
+            pointer-events: none; /* Текст не заважає hover ефекту на прямокутнику */
+        }
+
+        .diagram-arrow-line {
+            stroke: #555; /* Колір стрілки */
+            stroke-width: 2;
+            fill: none; /* Лінія не має заливки */
+        }
+        
+        .diagram-arrow-head {
+            fill: #555; /* Колір вістря */
+        }
+
+        .content-box h2 {
+            text-align: center;
+            color: #2a6496;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <p class="logo">FreshBuzz</p>
+        <a href="about_us.html">Про нас</a>
+        <a href="news.html">Новини</a>
+        <a href="menu.html">Меню</a> 
+        <a href="tables.html">Таблиці</a> 
+        <a href="forms.html">Форми</a>
+        <a href="media.html">Мультимедіа</a>
+        <a href="about_author.html">Про автора</a>
+        <a href="lists.html">Списки</a>
+        <a href="#" class="active">Діаграма</a> </header>
+
+    <div class="page-container">
+        <h1>Схема процесу FreshBuzz</h1>
+
+        <div class="content-box">
+            <h2>Наші етапи виробництва</h2>
+            <p>
+                Ця схема ілюструє спрощений потік від ідеї до готового слабоалкогольного напою, використовуючи SVG-фігури та стрілки.
+            </p>
+
+            <div class="svg-diagram-container">
+                <svg class="diagram-svg" viewBox="0 0 700 350">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" class="diagram-arrow-head" />
+                    </marker>
+                    <path id="circlePath" d="M150,150 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0" />
+                </defs>
+
+                <line x1="340" y1="0" x2="340" y2="340" class="diagram-arrow-line" marker-end="url(#arrowhead)"/>
+                <line x1="0" x2="680" y1="170" y2="170" class="diagram-arrow-line" marker-end="url(#arrowhead)"/>
+
+                <circle cx="400" cy="140" r="30" fill="black">
+                    <animate attributeName="fill" values="black;#66b3ff;black" dur="3s" repeatCount="indefinite" />
+                </circle>
+
+                <g transform="translate(460,140)">
+                    <circle r="30" fill="red">
+                        <animateTransform attributeName="transform" attributeType="XML"
+                            type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                </g>
+
+                <rect x="340" y="110" width="30" height="30" fill="#66b3ff">
+                    <animate attributeName="y" values="110;80;110" dur="3s" repeatCount="indefinite" />
+                </rect>
+
+                <rect x="370" y="80" width="30" height="30"/>
+
+                <rect x="490" y="110" width="30" height="30" fill="#ffcc33">
+                    <animate attributeName="width" values="30;60;30" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="30;60;30" dur="3s" repeatCount="indefinite" />
+                </rect>
+
+                <g transform="translate(430,200)">
+                    <ellipse cx="0" cy="0" rx="60" ry="30" fill="black">
+                        <animateTransform attributeName="transform" attributeType="XML"
+                            type="scale" values="1 1; 1.3 0.7; 1 1" dur="3s" repeatCount="indefinite" />
+                    </ellipse>
+                </g>
+
+                <rect x="400" y="230" width="60" height="30" fill="#4da6ff">
+                    <animateTransform attributeName="transform" attributeType="XML"
+                        type="translate" values="0 0; 10 0; -10 0; 0 0" dur="4s" repeatCount="indefinite" />
+                </rect>
+
+                <rect x="460" y="80" width="30" height="30">
+                    <animateTransform
+                    attributeName="transform"
+                    attributeType="XML"
+                    type="rotate"
+                    from="0 475 95"
+                    to="360 475 95"
+                    dur="3s"
+                    repeatCount="indefinite" />
+                </rect>
+
+                <text font-size="20" fill="darkblue">
+                    <textPath href="#circlePath" startOffset="0%">
+                    Text following a perfect circle 
+                    </textPath>
+                </text>
+                
+            </svg>
+
+            </div>
+
+            <p>
+                Ця візуалізація допомагає краще зрозуміти ключові етапи нашого бізнес-процесу.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
