@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Form</title>
+</head>
+<body>
+    <h1 id="H1">This is simple form</h1>
+    <h2 id="H2">This is subheading</h2>
+    <p>That is programmed with JavaScript</p>
+    <form action="">
+        <textarea id="textarea" name="message" rows="5" cols="40" placeholder="Введіть текст тут..."></textarea>
+        <br>
+        <br>
+        <button id="button-input">Get Input Info</button>
+        <button id="page-info">Get Page Info</button>
+        <br>
+        <br>
+        <textarea name="array" id="ArrayTask" rows="5" cols="40" placeholder="Введіть масив чисел..."></textarea>
+        <br>
+        <button id="array-btn">Get result</button>
+    </form>
+    <script>
+        document.getElementById("button-input").addEventListener("click", function (event) {
+            event.preventDefault()
+        let input = document.getElementById("textarea").value;
+        input = input.split(/\s+/);
+        console.log("Words count:", input.length);
+        const regex = /^a\w*a$/i;
+        for (let word of input) {
+            console.log(`${word} matches regex ${regex}:`, regex.test(word));
+        }
+        for (let word of input) {
+            let n = Number(word);
+            if (!isNaN(n)) {
+                console.log(`${word} is number`);
+                if (Number.isInteger(n)) {
+                    console.log(`${word} is integer`);
+                }
+            }
+        }
+    });
+
+    document.getElementById("page-info").addEventListener("click", function(event){
+            event.preventDefault();
+            console.log("=== Інформація про Web-проєкт ===");
+            console.log("3.1. Тип браузера:", navigator.userAgent);
+            console.log("3.2. Кількість сторінок в історії:", history.length);
+            console.log("3.3. Властивості сторінки:");
+            console.log("URL:", location.href);
+            console.log("Хост:", location.hostname);
+            console.log("Шлях:", location.pathname);
+            console.log("Протокол:", location.protocol);
+            console.log("3.4. Час звернення:", new Date().toLocaleString());
+            console.log("3.5. Властивості об’єкта document:");
+            console.log(Object.keys(document));
+            console.log("3.6. Кількість форм:", document.forms.length);
+            console.log("3.8. Посилання на сторінці:");
+            Array.from(document.links).forEach(link => console.log(link.href));
+            console.log("3.9. Зображення на сторінці:");
+            Array.from(document.images).forEach(img => console.log(img.src));
+            if (document.forms.length > 0) {
+                console.log("3.10. Елементи першої форми:");
+                Array.from(document.forms[0].elements).forEach(el => 
+                console.log(el.name || "(без name)", "-", el.type)
+                );
+            } else {
+                console.log("3.10. Форм немає на сторінці");
+            }
+            console.log("3.11. Розробник проекту: Віталій Михайлюк");
+    })
+
+    const events = {
+        load: "load — сторінка повністю завантажена",
+        unload: "unload — вихід користувача з документа",
+        afterprint: "afterprint — документ роздрукований",
+        beforeprint: "beforeprint — документ готується до друку",
+        beforeunload: "beforeunload — сторінка готується до виходу",
+        blur: "blur — вікно втратило фокус",
+        error: "error — сталася помилка",
+        focus: "focus — вікно отримало фокус",
+        haschange: "haschange — документ змінено",
+        message: "message — отримано повідомлення",
+        offline: "offline — документ перейшов в офлайн",
+        online: "online — документ перейшов онлайн",
+        pagehide: "pagehide — сторінка стала прихованою",
+        pageshow: "pageshow — сторінка стала видимою",
+        popstate: "popstate — зміна стану історії",
+        redo: "redo — виконано команду redo",
+        resize: "resize — змінено розміри вікна",
+        storage: "storage — зміни у сховищі",
+        undo: "undo — виконано команду undo"
+    };
+
+    let eventNames = Object.keys(events);
+
+    eventNames.forEach(eventName => {
+        window.addEventListener(eventName, () => {
+            console.log(events[eventName]);
+        });
+    });
+
+    const mouseEvents = {
+        click: "click — клік лівою кнопкою миші",
+        dblclick: "dblclick — подвійний клік",
+        drag: "drag — елемент перетягується",
+        dragend: "dragend — завершення перетягування",
+        dragenter: "dragenter — елемент потрапив у зону падіння",
+        dragleave: "dragleave — елемент покинув зону падіння",
+        dragover: "dragover — елемент тягнуть над зоною падіння",
+        dragstart: "dragstart — початок перетягування",
+        drop: "drop — елемент впав на зону падіння",
+        mousedown: "mousedown — натискання кнопки миші",
+        mousemove: "mousemove — переміщення миші",
+        mouseout: "mouseout — курсор пішов з елемента",
+        mouseover: "mouseover — курсор зайшов на елемент",
+        mouseup: "mouseup — відпускання кнопки миші",
+        mousewheel: "mousewheel — прокрутка колеса миші",
+        scroll: "scroll — прокручування елемента"
+    };
+
+    eventNames = Object.keys(mouseEvents);
+
+    const H1 = document.getElementById("H1");
+    const H2 = document.getElementById("H2");
+
+    [eventNames].forEach(() => {
+        eventNames.forEach(eventName => {
+            H1.addEventListener(eventName, () => {
+            console.log(`H1: ${mouseEvents[eventName]}`);
+            });
+
+            H2.addEventListener(eventName, () => {
+            console.log(`H2: ${mouseEvents[eventName]}`);
+            });
+        });
+    });
+
+    let array = document.getElementById("ArrayTask").value
+    let array_btn = document.getElementById("array-btn");
+
+    array_btn.addEventListener("click", function(event){
+        event.preventDefault();
+        let array = document.getElementById("ArrayTask").value;
+        array = array.trim().split(/\s+/).map(Number);
+        let newArray = []
+        for (num of array){
+            if (num >= 0){
+                newArray.push(num)
+            }
+        }
+        console.log(newArray);
+});
+
+    </script>
+</body>
+</html>
