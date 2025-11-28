@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Лабораторна №6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        canvas {
+            background: #ffffff;
+            border: 2px solid #2a6496;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2a6496;
+        }
+    </style>
+</head>
+<body>
+    <h1>Група геометричних фігур на Canvas + Анімації</h1>
+
+    <canvas id="canvas" width="700" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        let t = 0;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const pulse = 20 + Math.sin(t) * 10;
+            ctx.beginPath();
+            ctx.arc(150, 120, pulse, 0, Math.PI * 2);
+            ctx.fillStyle = "#66b3ff";
+            ctx.fill();
+
+            const moveX = Math.sin(t * 1.5) * 40;
+            ctx.fillStyle = "#ffcc33";
+            ctx.fillRect(300 + moveX, 100, 50, 50);
+
+            ctx.save();
+            ctx.translate(500, 130);
+            ctx.rotate(t * 0.05);
+            ctx.fillStyle = "#ff4444";
+            ctx.fillRect(-25, -25, 50, 50);
+            ctx.restore();
+
+            const scale = 1 + Math.sin(t) * 0.3;
+            ctx.save();
+            ctx.translate(200, 260);
+            ctx.scale(scale, 1);
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 70, 30, 0, 0, Math.PI * 2);
+            ctx.fillStyle = "#000";
+            ctx.fill();
+            ctx.restore();
+
+            const slide = (Math.sin(t) * 20);
+            ctx.fillStyle = "#4da6ff";
+            ctx.fillRect(350 + slide, 250, 80, 35);
+
+            t += 0.05;
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
