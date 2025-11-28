@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media</title>
+</head>
+<body>
+    <h2>Виберіть улюблену категорію</h2>
+    <input type="radio" name="video" id="uk"> Британська класика
+    <br>
+    <input type="radio" name="video" id="us"> Американські хіти
+    <br>
+    <input type="radio" name="video" id="rock"> Америкаеський рок
+    <br><br>
+
+    <video controls width="300">
+        <source id="videoSrc" src="" type="video/mp4">
+    </video>
+
+    <br><br>
+
+    <h2>Виберіть улюбленого виконавця</h2>
+    <input type="radio" name="song" id="paparazzi"> Lady Gaga
+    <br>
+    <input type="radio" name="song" id="life"> Bon Jovi
+    <br>
+    <input type="radio" name="song" id="espresso"> Sabrina Carpenter
+    <br><br>
+    <audio controls width="400">
+        <source id="audioSrc" src="" type="audio/mp3">
+    </audio>
+
+    <script>
+        const video = document.querySelector("video");
+        const audio = document.querySelector("audio");
+
+        document.getElementById("uk").addEventListener("change", function(){
+            const src = document.getElementById("videoSrc");
+            src.setAttribute("src", "rickroll.mp4");
+            video.load();
+            video.play();
+        });
+
+        document.getElementById("us").addEventListener("change", function(){
+            const src = document.getElementById("videoSrc");
+            src.setAttribute("src", "girls.mp4");
+            video.load();
+            video.play();
+        });
+
+        document.getElementById("rock").addEventListener("change", function(){
+            const src = document.getElementById("videoSrc");
+            src.setAttribute("src", "numb.mp4");
+            video.load();
+            video.play();
+        });
+
+        document.getElementById("paparazzi").addEventListener("change", function(){
+            const src = document.getElementById("audioSrc");
+            src.setAttribute("src", "paparazzi.mp3");
+            audio.load();
+            audio.play();
+        });
+
+        document.getElementById("life").addEventListener("change", function(){
+            const src = document.getElementById("audioSrc");
+            src.setAttribute("src", "life.mp3");
+            audio.load();
+            audio.play();
+        });
+
+        document.getElementById("espresso").addEventListener("change", function(){
+            const src = document.getElementById("audioSrc");
+            src.setAttribute("src", "espresso.mp3");
+            audio.load();
+            audio.play();
+        });
+    </script>
+</body>
+</html>
